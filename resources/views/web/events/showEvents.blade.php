@@ -1,17 +1,12 @@
-<!DOCTYPE html>
-<html lang="es">
+@extends('layouts.app')
 
-<head>
-    @include('partials.head')
-    <title>{{ $events->title }}</title>
-</head>
+@section('title','IdolPass')
 
-<body>
-    <header>
-        <!-- Navbar start -->
-        @include('layouts.app')
-        <!-- Navbar end -->
-    </header>
+@section('navbar')
+    @include('partials.navBlack')
+@endsection
+
+@section('content')
 
     <div class="container">
         <div class="eventCardPreviewDark p-3 p-md-4 p-lg-5" style="min-height: 100vh;">
@@ -176,22 +171,4 @@
         </div>
     </div>
 
-    {{-- <div>
-        <h1>
-            Evento {{ $events->id }}
-            <br>
-            {{ $events->title }}
-        </h1>
-    </div>--}}
-
-    {{-- <p><a href="{{ route('web.events.index') }}">Volver al listado de Conciertos</a></p>--}}
-
-    <!-- footer star -->
-    @include('partials.footer')
-    <!-- footer end -->
-
-    <!-- Js files -->
-    @include('partials.jscripts')
-</body>
-
-</html>
+    @endsection

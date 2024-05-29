@@ -1,12 +1,12 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    @include('partials.head')
+@extends('layouts.app')
 
-    <title>Form create </title>
-</head>
-<body>
-    @include('layouts.app')
+@section('title','IdolPass')
+
+@section('navbar')
+    @include('partials.navBlack')
+@endsection
+
+@section('content')
     <main class="container">
         <div class="row">
             <div class="col-md-12">
@@ -52,19 +52,11 @@
                         <label for="image">Poster</label>
                         <textarea name="image"  id="image" type="text" class="form-control">{{ $event->image }} </textarea>
                     </div>
-                    <div class="form-group mt-2">
+                    <div class="form-group mt-3">
                         <button class="btn btn-primary" name"submit" type="submit"> Guardar</button>
                     </div>
                 </form>
             </div>
         </div>
     </main>
-
-    <!-- footer star -->
-    @include('partials.footer')
-    <!-- footer end -->
-
-    <!-- Js files -->
-    @include('partials.jscripts')
-</body>
-</html>
+    @endsection

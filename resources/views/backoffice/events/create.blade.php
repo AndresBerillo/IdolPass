@@ -1,15 +1,16 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    @include('partials.head')
-    <title>Form create </title>
-</head>
-<body>
-    @include('layouts.app')
+@extends('layouts.app')
+
+@section('title','IdolPass')
+
+@section('navbar')
+    @include('partials.navBlack')
+@endsection
+
+@section('content')
     <main class="container">
         <div class="row">
             <div class="col-md-12">
-                <form method="POST" action="/backoffice/events" >
+                <form method="POST" action="/backoffice/events" style="color: white">
                     @csrf
                     <div class="form-group mt-3">
                         <label for="title">Título</label>
@@ -51,19 +52,12 @@
                         <label for="image">Poster</label>
                         <textarea name="image" id="image" type="text" class="form-control"> </textarea>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mt-3">
                         <button class="btn btn-primary" name "submit" type="submit"> Guardar</button>
                     </div>
                 </form>
             </div>
         </div>
     </main>
+    @endsection
 
-        <!-- footer star -->
-        @include('partials.footer')
-        <!-- footer end -->
-
-        <!-- Js files -->
-        @include('partials.jscripts')
-</body>
-</html>
