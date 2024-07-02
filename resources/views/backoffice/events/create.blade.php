@@ -10,7 +10,7 @@
     <main class="container">
         <div class="row">
             <div class="col-md-12">
-                <form method="POST" action="/backoffice/events" style="color: white">
+                <form method="POST" action="/backoffice/events" enctype="multipart/form-data" style="color: white">
                     @csrf
                     <div class="form-group mt-3">
                         <label for="title">Título</label>
@@ -50,7 +50,7 @@
                     </div>
                     <div class="form-group mt-3">
                         <label for="image">Poster</label>
-                        <textarea name="image" id="image" type="text" class="form-control"> </textarea>
+                        <input name="image" id="image" type="file" class="form-control">
                     </div>
                     <div class="form-group mt-3">
                         <button class="btn btn-primary" name "submit" type="submit"> Guardar</button>

@@ -20,9 +20,10 @@ return new class extends Migration
             $table->string('location_address',150);
             $table->date('event_date');
             $table->double('price');
-            $table->tinyInteger('event_type')->index();
-            $table->string('image',255);
+            $table->tinyInteger('type_id')->unsigned()->index();
+            $table->integer('image_id')->unsigned()->index();
             $table->timestamps();
+
         });
     }
 

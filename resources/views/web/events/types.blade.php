@@ -25,36 +25,31 @@
     </div>
     <!-- image end -->
 
-    <!-- Botón para ver el carrito -->
+
+    <!-- section 2 start -->
+    <section>
+        <!-- Botón para ver el carrito -->
     <div class="container mt-3 d-flex justify-content-between">
         <form action="/events" class="d-flex">
             <input class="form-control me-2" type="search" id="search" name="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
-        <div class="d-flex">
+        <div class="d-flex"> 
             <div>
                 <a href="{{ route('web.cart.show') }}" class="btn btn-warning" style="
                 margin-right: 1rem;">
                     <i class="fa-solid fa-shopping-cart"></i> Carrito ({{ count(session('cart', [])) }})
                 </a>
             </div>
-            <div>
-                <li class="nav-item dropdown" style="color: white">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Filtro
+                <div >
+                    <a href="/events">
+                        <button class="btn btn-primary">volver</button>
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        @foreach($types as $type)
-                        <li><a class="dropdown-item" href="{{ url('types/' . $type->id) }}">{{ $type->value }}</a></li>
-                        @endforeach
-                    </ul>
-                  </li>
-            </div>
+                </div>
         </div>
-
+        
     </div>
-
-
+        
         <div class="container">
             <div class="row mb-2">
                 <div class="col-12 mt-4">
@@ -105,9 +100,6 @@
                     </tr>
                 @endforelse
             </div>
-        </div>
-        <div class="container justify-content-center mt-3">
-            {{$events->links()}}
         </div>
         <!-- CARDS end -->
 

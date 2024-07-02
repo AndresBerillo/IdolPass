@@ -1,4 +1,3 @@
-
 @extends('layouts.app')
 
 @section('title','IdolPass')
@@ -20,17 +19,10 @@
         <a href="/backoffice/events/create" class="btn btn-success mb-3"
             style="margin-right: 0.2rem">Agregar</a>
     </div>
-    <div>
-        <li class="nav-item dropdown" style="color: white">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Filtro
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                @foreach($types as $type)
-                <li><a class="dropdown-item" href="{{ url('backoffice/types/' . $type->id) }}">{{ $type->value }}</a></li>
-                @endforeach
-            </ul>
-          </li>
+    <div >
+        <a href="/backoffice/events">
+            <button class="btn btn-primary">volver</button>
+        </a>
     </div>
     </div>
 
@@ -64,16 +56,8 @@
                         <td>{{ $event->price }}</td>
                         <td>{{$event->type->value}}</td>
                         <td >
-                            <div class="d-flex" >
-                                <a href="/backoffice/events/{{ $event->id }}/edit" class="btn btn-primary"
-                                    style="margin-right: 0.2rem">Editar</a>
-                                    <form action="{{ route('backoffice.destroy', $event->id) }}" method="POST" style="display:inline;">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-danger">Eliminar</button>
-                                    </form>
-                            </div>
-
+                            <a href="/backoffice/events/{{ $event->id }}/edit" class="btn btn-primary"
+                                style="margin-right: 0.2rem">Editar</a>
                         </td>
                     </tr>
 
@@ -90,9 +74,6 @@
             </table>
         </div>
     </div>
-        <div class=" justify-content-center">
-            {{$events->links()}}
-        </div>
 </main>
 
 @endsection
