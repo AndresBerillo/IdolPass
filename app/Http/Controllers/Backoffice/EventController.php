@@ -12,7 +12,7 @@ class EventController extends Controller
 {
     public function index()
     {
-        $events = Event::paginate(5);
+        $events = Event::orderBy('event_date', 'asc')->paginate(5);
         $types = Type::all();
         return view('backoffice.events.index',compact('events','types'));
     }
@@ -28,6 +28,7 @@ class EventController extends Controller
         $event->title = request()->input('title');
         $event->producer = request()->input('producer');
         $event->description = request()->input('description');
+        $event->location_name = request()->input('location_name');
         $event->location_address = request()->input('location_address');
         $event->event_date = request()->input('event_date');
         $event->price = request()->input('price');

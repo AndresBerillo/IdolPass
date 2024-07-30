@@ -18,6 +18,8 @@ class EventsController extends Controller
             $query->where('title','like',"%$search%");
         }
 
+        $query->orderBy('event_date', 'asc');
+
         $events = $query->paginate(4);
         return view('web.events.index',compact('events','types'));
     }
@@ -56,7 +58,7 @@ class EventsController extends Controller
         $ids[] = $id;
         session(['cart' => $ids]);
 
-        return redirect('/events');
+        return redirect('/cart');
     }
 
     public function remove($id)
@@ -72,7 +74,7 @@ class EventsController extends Controller
 
     session(['cart' => $ids]);
 
-    return redirect('/events');
+    return redirect('/cart');
 }
 
 public function showCart()
